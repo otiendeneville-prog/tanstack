@@ -4,10 +4,13 @@ type SkillCardProps={
 
 export default function skillCard({name:SkillCardProps}) {
   const[liked,setLiked] = useState(false);
-  const likes=liked? 1 :0;
+  const likes = liked? 1 :0;
   return (
     <article>
-     <p>Skill: Tanstack Start</p>
+     <p>Skill</p>
+     <h2>{name}</h2>
+     <p>{likes} {likes == 1? 'like': 'likes'}</p>
+      <button onClick={()=>setLiked((current)=> !current)}></button>
     </article>
   )
 }
