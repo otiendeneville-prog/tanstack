@@ -3,7 +3,7 @@
 export default function skillCard() {
   return (
     <article>
-     Skill: Tanstack Start
+     <p>Skill: Tanstack Start</p>
     </article>
   )
 }
