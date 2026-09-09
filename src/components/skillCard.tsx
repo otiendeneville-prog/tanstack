@@ -2,6 +2,8 @@
 
 export default function skillCard() {
   return (
-    <div>skillCard</div>
+    <article>
+     Skill: Tanstack Start
+    </article>
   )
 }
