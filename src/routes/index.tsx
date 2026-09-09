@@ -16,6 +16,9 @@ function Home() {
         <li>
            <SkillCard name="Tanstack Start"/>
         </li>
+        <li>
+          <SkillCard name="MangoDB" />
+        </li>
       </ul>
     </div>
   )
