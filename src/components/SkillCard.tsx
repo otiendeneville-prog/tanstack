@@ -14,6 +14,7 @@ export default function skillCard({name}:SkillCardProps) {
      <h2>{name}</h2>
      <p>{likes} {likes == 1? 'like': 'likes'}</p>
       <button onClick={()=>setLiked((current)=> !current)} type="button">
+        <Heart fill={liked ? 'currentColor': 'none'} size={18} />
       </button>
     </article>
   )
