@@ -10,10 +10,10 @@ export default function skillCard({name}:SkillCardProps) {
   const[liked,setLiked] = useState(false);
   const likes = liked? 1 :0;
   return (
-    <article className="island-shell rise-in rounded-3xl p-5c">
+    <article className="rise-in rounded-3xl p-5c">
       <div className="flex items-start justify-between gap-5">
         <div className="space-y-2">
-            <p className="island-kicker">Skill</p>
+            <p className="leading-normal font-semibold text-base">Skill</p>
             <h2 className="display-title text-2xl font-bold">{name}</h2>
             <p>{likes} {likes == 1? 'like': 'likes'}</p>
         </div>
@@ -21,8 +21,6 @@ export default function skillCard({name}:SkillCardProps) {
         <Heart fill={liked ? 'currentColor': 'none'} size={18} />
       </button>
       </div>
-    
-    
     </article>
   )
 }
