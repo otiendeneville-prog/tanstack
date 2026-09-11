@@ -8,6 +8,9 @@ export const Route = createFileRoute('/')({
   loader: async () =>{
      const response = await fetch(POKE_API_URL) 
      const data = await response.json();
+
+     console.log('Loader data:', data)
+     return data;
   }
  })
 
