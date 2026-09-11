@@ -2,7 +2,12 @@ import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 
 
-export const Route = createFileRoute('/')({ component: Home })
+export const Route = createFileRoute('/')({ 
+  component: Home,
+  loader: async () =>{
+    console.log('Loading data for / route...')
+  }
+ })
 
 function Home() {
  

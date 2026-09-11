@@ -11,8 +11,11 @@ function RouteComponent() {
       <aside>
         <p>sidebar</p>
       </aside>
-      <aside>
-        <Outlet />
+      <aside/>
+      <section>
+          <Outlet />
+      </section>
+       
     </main>
   )
 }
