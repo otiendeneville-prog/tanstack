@@ -1,11 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 
+const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
 export const Route = createFileRoute('/')({ 
   component: Home,
   loader: async () =>{
-    console.log('Loading data for / route...')
+     const response = await fetch('POKE_API_URL') 
+     const data = await response.json();
   }
  })
 
