@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Char38skillsRouteImport } from './routes/&skills'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as SkillsNewRouteImport } from './routes/skills/new'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SkillsNewRoute = SkillsNewRouteImport.update({
+  id: '/skills/new',
+  path: '/skills/new',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
+  '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
+  '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
+  '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/&skills' | '/contact'
+  fullPaths: '/' | '/&skills' | '/contact' | '/skills/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/&skills' | '/contact'
-  id: '__root__' | '/' | '/&skills' | '/contact'
+  to: '/' | '/&skills' | '/contact' | '/skills/new'
+  id: '__root__' | '/' | '/&skills' | '/contact' | '/skills/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   Char38skillsRoute: typeof Char38skillsRoute
   ContactRoute: typeof ContactRoute
+  SkillsNewRoute: typeof SkillsNewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/skills/new': {
+      id: '/skills/new'
+      path: '/skills/new'
+      fullPath: '/skills/new'
+      preLoaderRoute: typeof SkillsNewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   Char38skillsRoute: Char38skillsRoute,
   ContactRoute: ContactRoute,
+  SkillsNewRoute: SkillsNewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
