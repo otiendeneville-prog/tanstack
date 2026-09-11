@@ -6,7 +6,7 @@ const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
 export const Route = createFileRoute('/')({ 
   component: Home,
   loader: async () =>{
-     const response = await fetch('POKE_API_URL') 
+     const response = await fetch(POKE_API_URL) 
      const data = await response.json();
   }
  })
