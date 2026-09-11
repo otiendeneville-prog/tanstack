@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as Char38skillsRouteImport } from './routes/&skills'
 import { Route as ContactRouteImport } from './routes/contact'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Char38skillsRoute = Char38skillsRouteImport.update({
+  id: '/&skills',
+  path: '/&skills',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -25,27 +31,31 @@ const ContactRoute = ContactRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/&skills': typeof Char38skillsRoute
   '/contact': typeof ContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact'
+  fullPaths: '/' | '/&skills' | '/contact'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact'
-  id: '__root__' | '/' | '/contact'
+  to: '/' | '/&skills' | '/contact'
+  id: '__root__' | '/' | '/&skills' | '/contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  Char38skillsRoute: typeof Char38skillsRoute
   ContactRoute: typeof ContactRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/&skills': {
+      id: '/&skills'
+      path: '/&skills'
+      fullPath: '/&skills'
+      preLoaderRoute: typeof Char38skillsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  Char38skillsRoute: Char38skillsRoute,
   ContactRoute: ContactRoute,
 }
 export const routeTree = rootRouteImport
