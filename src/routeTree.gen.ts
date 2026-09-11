@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as SkillsChar38skillIdRouteImport } from './routes/skills/&skillId'
+import { Route as SkillsSkillIdRouteImport } from './routes/skills/$skillId'
 import { Route as SkillsNewRouteImport } from './routes/skills/new'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +24,9 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SkillsChar38skillIdRoute = SkillsChar38skillIdRouteImport.update({
-  id: '/skills/&skillId',
-  path: '/skills/&skillId',
+const SkillsSkillIdRoute = SkillsSkillIdRouteImport.update({
+  id: '/skills/$skillId',
+  path: '/skills/$skillId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SkillsNewRoute = SkillsNewRouteImport.update({
@@ -38,34 +38,34 @@ const SkillsNewRoute = SkillsNewRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/skills/&skillId': typeof SkillsChar38skillIdRoute
+  '/skills/$skillId': typeof SkillsSkillIdRoute
   '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/skills/&skillId': typeof SkillsChar38skillIdRoute
+  '/skills/$skillId': typeof SkillsSkillIdRoute
   '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/skills/&skillId': typeof SkillsChar38skillIdRoute
+  '/skills/$skillId': typeof SkillsSkillIdRoute
   '/skills/new': typeof SkillsNewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/skills/&skillId' | '/skills/new'
+  fullPaths: '/' | '/contact' | '/skills/$skillId' | '/skills/new'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/skills/&skillId' | '/skills/new'
-  id: '__root__' | '/' | '/contact' | '/skills/&skillId' | '/skills/new'
+  to: '/' | '/contact' | '/skills/$skillId' | '/skills/new'
+  id: '__root__' | '/' | '/contact' | '/skills/$skillId' | '/skills/new'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  SkillsChar38skillIdRoute: typeof SkillsChar38skillIdRoute
+  SkillsSkillIdRoute: typeof SkillsSkillIdRoute
   SkillsNewRoute: typeof SkillsNewRoute
 }
 
@@ -85,11 +85,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/skills/&skillId': {
-      id: '/skills/&skillId'
-      path: '/skills/&skillId'
-      fullPath: '/skills/&skillId'
-      preLoaderRoute: typeof SkillsChar38skillIdRouteImport
+    '/skills/$skillId': {
+      id: '/skills/$skillId'
+      path: '/skills/$skillId'
+      fullPath: '/skills/$skillId'
+      preLoaderRoute: typeof SkillsSkillIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/skills/new': {
@@ -105,7 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  SkillsChar38skillIdRoute: SkillsChar38skillIdRoute,
+  SkillsSkillIdRoute: SkillsSkillIdRoute,
   SkillsNewRoute: SkillsNewRoute,
 }
 export const routeTree = rootRouteImport
