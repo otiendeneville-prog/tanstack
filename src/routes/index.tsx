@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 import { Router as RouterIcon } from 'lucide-react';
-import { useLoaderData } from '@tanstack/react-router';
 
 
 
