@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
+import { Router } from 'lucide-react';
 
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
@@ -15,11 +16,24 @@ export const Route = createFileRoute('/')({
  })
 
 function Home() {
- 
+   
+  const data = Router.useLoaderData();
+   
   return (
     <div className="p-8">
       <h1 className="text-4xl font-bold">Hello World!</h1>
-      <ul>
+
+      <ul className='mt-6 list-none p-0 space-y-5'>
+       {data.results.map((pokemon: {name:string}) =>(
+        <li key={pokemon.name}>
+            <SkillCard name={pokemon.name}/>
+        </li>
+
+       ))}
+      </ul>  
+     
+
+      /* /* <ul>
         <li>
           <SkillCard name="TypeScript"/>
         </li>
@@ -29,7 +43,7 @@ function Home() {
         <li>
           <SkillCard name="MangoDB" />
         </li>
-      </ul>
+      </ul> */ 
     </div>
   )
 }
