@@ -10,6 +10,14 @@ const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
 export const Route = createFileRoute('/')({ 
   component: Home,
 
+  notFoundComponent:()=>{
+    return(
+      <div>
+        Not Found here!
+      </div>
+    )
+  },
+
   pendingComponent:()=>(
     <div className='p-14 text-center'>
        Loading Pokemon...
