@@ -24,6 +24,7 @@ export const Route = createFileRoute('/')({
   
   loader: async () =>{
     const data = await getPokemonFn(); 
+    return data;
   },
   errorComponent: ({error})=>{
     const router = useRouter();
