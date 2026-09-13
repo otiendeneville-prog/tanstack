@@ -29,7 +29,11 @@ export const Route = createFileRoute('/')({
      const response = await fetch(POKE_API_URL) 
     
      const data = await response.json();
-     throw notFound();
+
+     if(!data.results || data.results.length == 0){
+         throw notFound();
+     }
+    
 
      console.log('Loader data:', data)
      return data;
