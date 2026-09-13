@@ -15,16 +15,20 @@ export const Route = createFileRoute('/')({
     </div>
   ),
   pendingMs:300,
-
-  
   
   loader: async () =>{
      const response = await fetch(POKE_API_URL) 
+     throw new Error('API is down!')
      const data = await response.json();
 
      console.log('Loader data:', data)
      return data;
-  }
+  },
+  errorComponent: ()=>(
+    <div className='p-14 text-red-500'>
+      <p>Oops! error</p>
+    </div>
+  )
  })
 
 function Home() {
