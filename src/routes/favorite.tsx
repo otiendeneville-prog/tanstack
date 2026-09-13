@@ -11,7 +11,9 @@ function FavoritePage() {
   const[status, setStatus]= useState('')
 
   const savePokemon = useServerFn(saveFavoritePokemonFn)
-  return <main className='page-wrap px-4 pb-8 pt-14'>
+  return(
+  
+  <main className='page-wrap px-4 pb-8 pt-14'>
     <h1>Save a Pokemon </h1> 
     <form>
       <input type="text" 
@@ -22,5 +24,6 @@ function FavoritePage() {
       />
       <button type='submit' className='bg-blue-500 text-white p-2 rounded'>Save</button>
     </form>
+    <p className='mt-4'>{status}</p>
   </main>
-}
+  )
