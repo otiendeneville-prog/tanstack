@@ -19,7 +19,7 @@ export const Route = createFileRoute('/')({
   
   loader: async () =>{
      const response = await fetch(POKE_API_URL) 
-     throw new Error('API is down!')
+    
      const data = await response.json();
 
      console.log('Loader data:', data)
