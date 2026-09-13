@@ -1,3 +1,4 @@
+import { saveFavoritePokemonFn } from '#/server/pokemon'
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 
@@ -8,5 +9,9 @@ export const Route = createFileRoute('/favorite')({
 function FavoritePage() {
   const[name, setName]= useState('')
   const[status, setStatus]= useState('')
-  return <div>Hello "/favorite"!</div>
+
+  const savePokemon = useServerFn(saveFavoritePokemonFn)
+  return <main className='page-wrap px-4 pb-8 pt-14'>
+    <h1>Save a Pokemon </h1> 
+  </main>
 }
