@@ -33,19 +33,6 @@ function Home() {
 
        ))}
       </ul>  
-     
-
-      /* /* <ul>
-        <li>
-          <SkillCard name="TypeScript"/>
-        </li>
-        <li>
-           <SkillCard name="Tanstack Start"/>
-        </li>
-        <li>
-          <SkillCard name="MangoDB" />
-        </li>
-      </ul> */ 
     </div>
   )
 }
