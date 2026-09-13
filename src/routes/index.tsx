@@ -1,11 +1,8 @@
-import { createFileRoute, notFound } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 import { Router as RouterIcon } from 'lucide-react';
 import { useRouter } from '@tanstack/react-router';
-
-
-
-const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
+import { getPokemonFn } from '#/server/pokemon';
 
 export const Route = createFileRoute('/')({ 
   component: Home,
@@ -26,17 +23,7 @@ export const Route = createFileRoute('/')({
   pendingMs:300,
   
   loader: async () =>{
-     const response = await fetch(POKE_API_URL) 
-    
-     const data = await response.json();
-
-     if(!data.results || data.results.length == 0){
-         throw notFound();
-     }
-    
-
-     console.log('Loader data:', data)
-     return data;
+    const data = await getPokemonFn(); 
   },
   errorComponent: ({error})=>{
     const router = useRouter();
