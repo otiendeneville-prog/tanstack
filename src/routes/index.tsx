@@ -30,6 +30,9 @@ export const Route = createFileRoute('/')({
     return(
        <div className='p-14'>
       <p>Oops!{error.message}</p>
+      <button onClick={() =>router.invalidate()}>
+        Try Again
+      </button>
     </div> 
     )
   }
