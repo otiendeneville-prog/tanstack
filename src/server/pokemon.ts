@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { resolve } from "path";
 
 
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
@@ -14,4 +15,5 @@ export const getPokemonFn = createServerFn({ method:'GET'}).handler(async() =>{
 
 export const saveFavoritePokemonFn = createServerFn ({method:'POST'}).handler(async()=>{
     console.log('Saving data to our secure database...')
+    await new Promise((resolve) => setTimeout(resolve,1000));
 })
