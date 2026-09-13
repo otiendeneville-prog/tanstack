@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 import { Router as RouterIcon } from 'lucide-react';
+import { useRouter } from '@tanstack/react-router';
 
 
 
@@ -24,11 +25,14 @@ export const Route = createFileRoute('/')({
      console.log('Loader data:', data)
      return data;
   },
-  errorComponent: ()=>(
-    <div className='p-14 text-red-500'>
-      <p>Oops! error</p>
-    </div>
-  )
+  errorComponent: ({error})=>{
+    const router = useRouter();
+    return(
+       <div className='p-14'>
+      <p>Oops!{error.message}</p>
+    </div> 
+    )
+  }
  })
 
 function Home() {
