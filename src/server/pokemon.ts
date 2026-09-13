@@ -12,6 +12,6 @@ export const getPokemonFn = createServerFn({ method:'GET'}).handler(async() =>{
         }
        
    
-        console.log('Loader data:', data)
+        console.log('Executing a secure database/API call on a server...');
         return data;
 })
