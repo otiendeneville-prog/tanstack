@@ -11,3 +11,7 @@ export const getPokemonFn = createServerFn({ method:'GET'}).handler(async() =>{
    console.log('Data succesfully fetched on the server')    
    return data;
 })
+
+export const saveFavoritePokemonFn = createServerFn ({method:'POST'}).handler(async()=>{
+    console.log('Saving data to our secure database...')
+})
