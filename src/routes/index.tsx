@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, notFound } from '@tanstack/react-router'
 import SkillCard from '#/components/SkillCard';
 import { Router as RouterIcon } from 'lucide-react';
 import { useRouter } from '@tanstack/react-router';
@@ -12,7 +12,7 @@ export const Route = createFileRoute('/')({
 
   notFoundComponent:()=>{
     return(
-      <div>
+      <div className='p-15 text-grey-500'>
         Not Found here!
       </div>
     )
@@ -29,6 +29,7 @@ export const Route = createFileRoute('/')({
      const response = await fetch(POKE_API_URL) 
     
      const data = await response.json();
+     throw notFound();
 
      console.log('Loader data:', data)
      return data;
