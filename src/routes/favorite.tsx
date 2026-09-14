@@ -26,4 +26,4 @@ function FavoritePage() {
     </form>
     <p className='mt-4'>{status}</p>
   </main>
-  )
+  )}

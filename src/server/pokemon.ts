@@ -1,5 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
-import { resolve } from "path";
+
 
 
 const POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon'
@@ -13,7 +13,7 @@ export const getPokemonFn = createServerFn({ method:'GET'}).handler(async() =>{
    return data;
 })
 
-export const saveFavoritePokemonFn = createServerFn ({method:'POST'}).handler(async(data)=>{()
+export const saveFavoritePokemonFn = createServerFn ({method:'POST'}).validator(async(data)=>{()
     .inputValidator((name: string)=> name)
     console.log('Saving data to our secure database...')
     await new Promise((resolve) => setTimeout(resolve,1000));
