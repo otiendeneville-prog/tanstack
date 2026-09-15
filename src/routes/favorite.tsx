@@ -15,7 +15,7 @@ function FavoritePage() {
   
   <main className='page-wrap px-4 pb-8 pt-14'>
     <h1>Save a Pokemon </h1> 
-    <form>
+    <form onSubmit={handleSubmit} className='mt-6  space-x-0'>
       <input type="text" 
       value={name}
       onChange={(e)=>setName(e.target.value)}
