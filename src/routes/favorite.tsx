@@ -16,6 +16,7 @@ function FavoritePage() {
     setStatus('Saving...')
     await savePokemon({data:name})
     setStatus(`succesfully saved ${name}`)
+    setName('')
   }
   return(
   
