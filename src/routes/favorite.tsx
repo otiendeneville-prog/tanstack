@@ -1,6 +1,6 @@
 import { saveFavoritePokemonFn } from '#/server/pokemon'
 import { createFileRoute } from '@tanstack/react-router'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export const Route = createFileRoute('/favorite')({
   component: FavoritePage,
@@ -11,6 +11,12 @@ function FavoritePage() {
   const[status, setStatus]= useState('')
 
   const savePokemon = useServerFn(saveFavoritePokemonFn)
+  const handleSubmit = async(else: React.FormEvent)=>{
+    e.preventDefault();
+    setStatus('Saving...')
+    await savePokemon({data:name})
+    setStatus(`succesfully saved ${name}`)
+  }
   return(
   
   <main className='page-wrap px-4 pb-8 pt-14'>
@@ -19,7 +25,7 @@ function FavoritePage() {
       <input type="text" 
       value={name}
       onChange={(e)=>setName(e.target.value)}
-      className='border-2 rounded'
+      className='border p-2 rounded'
       placeholder='pikachu'
       />
       <button type='submit' className='bg-blue-500 text-white p-2 rounded'>Save</button>
