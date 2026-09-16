@@ -1,6 +1,8 @@
 import { saveFavoritePokemonFn } from '#/server/pokemon'
 import { createFileRoute } from '@tanstack/react-router'
 import React, { useState } from 'react'
+import { useServerFn } from '@tanstack/react-start'; 
+
 
 export const Route = createFileRoute('/favorite')({
   component: FavoritePage,
@@ -11,7 +13,7 @@ function FavoritePage() {
   const[status, setStatus]= useState('')
 
   const savePokemon = useServerFn(saveFavoritePokemonFn)
-  const handleSubmit = async(else: React.FormEvent)=>{
+  const handleSubmit = async(e: React.FormEvent)=>{
     e.preventDefault();
     setStatus('Saving...')
     await savePokemon({data:name})
